@@ -26,11 +26,11 @@ export const startScene = () => {
     const pmremGenerator = new THREE.PMREMGenerator( renderer );
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0xbfe3dd );
+    scene.background = new THREE.Color( 0xb6b7b8 );
     scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 300 );
-    camera.position.set( 10, 20, 60);
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 300 );
+    camera.position.set( 2, 0, 2);
 
     const controls = new OrbitControls( camera, renderer.domElement );
     controls.target.set( 0, 0.5, 0 );
