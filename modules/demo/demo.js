@@ -26,9 +26,17 @@ document.getElementById("invite-url-button")?.addEventListener("click", (event) 
     const roomIdInput = document.getElementById('room-id')
 
     if(!roomIdInput) return
-
-    
     navigator.clipboard.writeText(roomIdInput.value); 
+    const checkboxState = document.getElementById("check-copy").checked
+    if (checkboxState) {
+      document.getElementById("check-copy").checked = false;
+      return
+    }
+  
+    document.getElementById("check-copy").checked = true;
+    setTimeout(function () {
+      document.getElementById("check-copy").checked = false;
+    }, 3000);
 });
 
 function setMeetingUrl() { 
@@ -45,7 +53,7 @@ function setMeetingUrl() {
   roomId = url.searchParams.get('roomId') ? url.searchParams.get('roomId') : generateUniqueId()
   
   if(roomIdInput) { 
-    roomIdInput.value = `${location.protocol + '//' + location.host}?roomId=${roomId}&user-type=guest`
+    roomIdInput.value = `${location.protocol + '//' + location.host}/guest.html?roomId=${roomId}&user-type=guest`
   }
 
   if(url.searchParams.get('roomId') && url.searchParams.get('user-type')) return;
