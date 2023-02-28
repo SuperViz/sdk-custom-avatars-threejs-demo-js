@@ -1,4 +1,4 @@
-const DEVELOPER_KEY = "<SUPERVIZ_DEVELOPER_KEY>";
+const DEVELOPER_KEY = "j81nnhik7a8sj2lr1qy4y59mtv7drf";
 
 const url = new URL(document.URL);
 let userName = url.searchParams.get('user-name');
